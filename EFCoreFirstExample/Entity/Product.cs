@@ -16,9 +16,12 @@ namespace EFCoreFirstExample.Entity
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
         public decimal Price { get; set; }
+        public int quantity { get; set; }   
+
+        #endregion Properties
 
         // Navigation property for 1-n relationship with UserOrderProduct
         public List<UserOrderProduct>? UserOrderProducts { get; set; }
-        #endregion Properties
+      
     }
 }

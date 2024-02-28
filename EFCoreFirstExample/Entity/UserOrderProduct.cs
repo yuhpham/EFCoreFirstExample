@@ -9,6 +9,9 @@ namespace EFCoreFirstExample.Entity
         [Key]
         public int UserOrderProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
+        public int quantity { get; set; }
+        public decimal Discount { get; set; }
+        public string Note { get; set; } =string.Empty;
 
         // Foreign key property for 1-n relationship with UserOrder
         public int UserOrderId { get; set; }
