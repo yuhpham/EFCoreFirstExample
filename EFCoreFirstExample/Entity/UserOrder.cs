@@ -14,12 +14,15 @@ namespace EFCoreFirstExample.Entity
         #region Properties
         [Key]
         public int UserOrderId { get; set; }
+        public string TransactionStatus { get; set; } = string.Empty;
         public DateTime OrderDate { get; set; }
         #endregion Properties
+
 
         // Foreign key for the 1-n relationship with User
         public int UserId { get; set; }
         public User? User { get; set; }
+
 
         // Navigation property for 1-n relationship with UserOrderProduct
         public List<UserOrderProduct>? UserOrderProducts { get; set; }

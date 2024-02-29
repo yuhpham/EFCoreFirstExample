@@ -5,6 +5,7 @@
 // Tạo bảng UserOrderProduct (giống bảng product: quantity, note, discount) quan hệ 1-n với UserOrder 
 
 using Microsoft.EntityFrameworkCore;
+
 using EFCoreFirstExample;
 using EFCoreFirstExample.Entity;
 

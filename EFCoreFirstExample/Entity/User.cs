@@ -18,7 +18,6 @@ namespace EFCoreFirstExample.Entity
         #endregion Properties
 
         public UserDetail? UserDetail { get; set; }
-        public List<UserOrder> Orders { get; set; } = new List<UserOrder>();
         public List<UserOrder>? UserOrders { get; set; }
     
 

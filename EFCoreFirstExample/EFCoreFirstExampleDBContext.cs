@@ -6,6 +6,7 @@ namespace EFCoreFirstExample
     public class EFCoreFirstExampleDBContext : DbContext
     {
         private string _ConnectionString = "Host=ep-bold-fog-a1nyhb75.ap-southeast-1.aws.neon.tech;Database=neonbdtest;Username=pqh.sony;Password=mE9ZC7SAKPTb";
+
         public DbSet<User> Users { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<UserOrder> UserOrders { get; set; }
@@ -22,28 +23,15 @@ namespace EFCoreFirstExample
                 .HasOne(a => a.UserDetail)
                 .WithOne(a => a.User)
                 .HasForeignKey<UserDetail>(a => a.UserId);
-           
             modelBuilder.Entity<User>()
-            .HasOne(u => u.UserDetail)
-            .WithOne(ud => ud.User)
-            .HasForeignKey<UserDetail>(ud => ud.UserId);
-
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.UserOrders)
-                .WithOne(uo => uo.User)
-                .HasForeignKey(uo => uo.UserId);
+            .HasMany(u => u.UserOrders)
+            .WithOne(uo => uo.User)
+            .HasForeignKey(uo => uo.UserId);
 
             modelBuilder.Entity<UserOrder>()
                 .HasMany(uo => uo.UserOrderProducts)
                 .WithOne(uop => uop.UserOrder)
                 .HasForeignKey(uop => uop.UserOrderId);
-
-            modelBuilder.Entity<UserOrder>()
-            .HasMany(uo => uo.UserOrderProducts)
-            .WithOne(uop => uop.UserOrder)
-            .HasForeignKey(uop => uop.UserOrderId);
-
-
         }
     }
 }
